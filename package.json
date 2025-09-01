@@ -1,0 +1,30 @@
+{
+  "name": "vue-design-editor",
+  "version": "0.1.0",
+  "license": "ISC",
+  "main": "dist/vue-design-editor.umd.js",
+  "module": "dist/vue-design-editor.es.js",
+  "style": "dist/vue-design-editor.css",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "json-editor-vue": "^0.18.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "sass": "^1.91.0",
+    "vite": "^7.1.4",
+    "vue": "3"
+  },
+  "peerDependencies": {
+    "vue": "3"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "engines": {
+    "node": "~22.14.0"
+  },
+  "packageManager": "yarn@4.9.1"
+}
