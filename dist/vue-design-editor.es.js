@@ -36,6 +36,7 @@ const id = (t, e) => {
       default: ""
     }
   },
+  emits: ["mounted", "resize"],
   data: function() {
     return {
       resizers: K3,
@@ -180,7 +181,7 @@ function nM(t, e, n, r, i, o) {
     ], 2)
   ], 6);
 }
-const rM = /* @__PURE__ */ id(J3, [["render", nM], ["__scopeId", "data-v-ffe82d70"]]);
+const rM = /* @__PURE__ */ id(J3, [["render", nM], ["__scopeId", "data-v-2e350b16"]]);
 function Dr(t) {
   return Array.isArray(t);
 }
@@ -29493,7 +29494,7 @@ function Dq(t, e) {
   var n = E(e, "color", 8), r = E(e, "onChange", 8), i = E(e, "showOnTop", 8), o = Q(), s = () => {
   };
   Ti(Mt(function* () {
-    var l, u = new ((l = yield import("./vanilla-picker-BbMY5WGk.mjs")) === null || l === void 0 ? void 0 : l.default)({ parent: c(o), color: n(), popup: i() ? "top" : "bottom", onDone(f) {
+    var l, u = new ((l = yield import("./vanilla-picker-BbMY5WGk.js")) === null || l === void 0 ? void 0 : l.default)({ parent: c(o), color: n(), popup: i() ? "top" : "bottom", onDone(f) {
       var d = f.rgba[3] === 1 ? f.hex.substring(0, 7) : f.hex;
       r()(d);
     } });
@@ -42370,6 +42371,7 @@ const FS = "JsonEditorVue", Ap = [
       required: !0
     }
   },
+  emits: ["update-prop", "toggle-slot", "edit-slot"],
   computed: {
     argTypes: function() {
       return {
@@ -42380,7 +42382,8 @@ const FS = "JsonEditorVue", Ap = [
   },
   methods: {
     updateJson: function(t, e) {
-      this.$emit("update-prop", t, e);
+      const n = JSON.parse(e);
+      this.$emit("update-prop", t, n);
     },
     defaultJsonValue: function(t) {
       return rX[t]();
@@ -42558,7 +42561,7 @@ function kX(t, e, n, r, i, o) {
     ]))), 128))
   ]);
 }
-const SX = /* @__PURE__ */ id(iX, [["render", kX], ["__scopeId", "data-v-2880b0e4"]]), CX = {
+const SX = /* @__PURE__ */ id(iX, [["render", kX], ["__scopeId", "data-v-0d9bea0d"]]), CX = {
   name: "ToolCategory",
   props: {
     name: {
@@ -42638,7 +42641,7 @@ const TX = /* @__PURE__ */ id(CX, [["render", MX], ["__scopeId", "data-v-9835c2e
       default: ""
     }
   },
-  emits: ["select-tool", "update-tools"],
+  emits: ["select-tool", "update-tools", "mounted"],
   data: function() {
     return {
       mouseTools: $X
@@ -42648,7 +42651,7 @@ const TX = /* @__PURE__ */ id(CX, [["render", MX], ["__scopeId", "data-v-9835c2e
     tools: function() {
       return Object.fromEntries(
         this.stories.flatMap(
-          (t) => Object.entries(t).filter(([e, n]) => e !== "default").map(([e, n]) => [
+          (t) => Object.entries(t).filter(([e]) => e !== "default").map(([e, n]) => [
             `${t.default.title}/${e}`,
             { ...n, definition: t.default, isStory: !0 }
           ])
@@ -42698,7 +42701,7 @@ function IX(t, e, n, r, i, o) {
     }, null, 8, ["sub-tree", "active-tool", "onSelectTool"])
   ]);
 }
-const zX = /* @__PURE__ */ id(PX, [["render", IX], ["__scopeId", "data-v-c8a556b9"]]), LX = {
+const zX = /* @__PURE__ */ id(PX, [["render", IX], ["__scopeId", "data-v-5a4a320c"]]), LX = {
   components: {
     EmbeddedComponent: rM,
     ComponentConfig: SX,
@@ -43000,7 +43003,7 @@ function UX(t, e, n, r, i, o) {
     }, null, 8, ["component", "onUpdateProp", "onToggleSlot", "onEditSlot"])) : ri("", !0)
   ], 32);
 }
-const GX = /* @__PURE__ */ id(LX, [["render", UX], ["__scopeId", "data-v-fbfcbf7d"]]);
+const GX = /* @__PURE__ */ id(LX, [["render", UX], ["__scopeId", "data-v-46f34669"]]);
 export {
   GX as default
 };

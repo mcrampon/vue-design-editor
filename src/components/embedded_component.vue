@@ -109,6 +109,8 @@ export default {
     }
   },
 
+  emits: ['mounted', 'resize'],
+
   data: function () {
     return {
       resizers,

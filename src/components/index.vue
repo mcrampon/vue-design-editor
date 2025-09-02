@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper" @mouseup="onMouseUp">
-    <tools :stories="stories" :active-tool="activeTool" @select-tool="selectTool" @mounted="updateToolsAfterMount" />
+    <tools
+      :stories="stories"
+      :active-tool="activeTool"
+      @select-tool="selectTool"
+      @mounted="updateToolsAfterMount"
+    />
 
     <div
       ref="canvasWrapper"

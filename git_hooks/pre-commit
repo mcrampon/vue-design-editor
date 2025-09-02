@@ -1,0 +1,29 @@
+
+prettier_targets=$(git diff --cached --name-only --diff-filter=ACM "*.js" "*.vue" | tr '\n' ' ')
+
+if [ ! -z "$prettier_targets" ]
+then
+  echo "$prettier_targets" | xargs yarn prettier --write
+
+  unstaged_files=$(git diff --name-only "*.js" "*.vue" | tr '\n' ' ')
+  has_unstaged=false
+
+  for file in $prettier_targets; do
+    if echo "$unstaged_files" | grep -q "$file"; then
+      echo "\n$file has been prettified."
+      has_unstaged=true
+    fi
+  done
+
+  if [ "$has_unstaged" = true ]; then
+    echo "Please stage the changes manually."
+    exit 1
+  fi
+fi
+
+yarn run eslint --no-warn-ignored --max-warnings 0 --exit-on-fatal-error || exit 1
+
+yarn build
+git add dist/
+
+exit 0

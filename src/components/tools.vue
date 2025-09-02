@@ -42,7 +42,7 @@ export default {
     }
   },
 
-  emits: ['select-tool', 'update-tools'],
+  emits: ['select-tool', 'update-tools', 'mounted'],
 
   data: function () {
     return {
@@ -55,7 +55,7 @@ export default {
       return Object.fromEntries(
         this.stories.flatMap(storyName =>
           Object.entries(storyName)
-            .filter(([key, _val]) => key !== 'default')
+            .filter(([key]) => key !== 'default')
             .map(([key, val]) => [
               `${storyName.default.title}/${key}`,
               { ...val, definition: storyName.default, isStory: true }

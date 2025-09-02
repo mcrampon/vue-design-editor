@@ -39,7 +39,7 @@
           :model-value="
             component.props[argName] || defaultJsonValue(controlType(argType))
           "
-          @update:modelValue="val => updateJson(argName, val)"
+          @update:model-value="val => updateJson(argName, val)"
         />
 
         <input
@@ -199,6 +199,8 @@ export default {
     }
   },
 
+  emits: ['update-prop', 'toggle-slot', 'edit-slot'],
+
   computed: {
     argTypes: function () {
       return {
@@ -210,7 +212,8 @@ export default {
 
   methods: {
     updateJson: function (argName, val) {
-      this.$emit('update-prop', argName, val);
+      const parsedVal = JSON.parse(val);
+      this.$emit('update-prop', argName, parsedVal);
     },
 
     defaultJsonValue: function (type) {
